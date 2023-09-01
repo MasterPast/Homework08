@@ -8,8 +8,8 @@ def get_birthdays_per_week(users):
     #  {'Monday': ['Bill', 'Jan'], 'Wednesday': ['Kim']}
 
     dict_births = {}
-    # today = datetime(year=2023, month=7, day=30).date()
-    today = datetime.today().date()
+    today = datetime(year=2023, month=12, day=26).date()
+    # today = datetime.today().date()
     # print(today)
     time_delta = timedelta(days=7)
     date_end = today + time_delta
