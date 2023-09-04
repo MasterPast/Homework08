@@ -1,13 +1,12 @@
 from datetime import date, datetime, timedelta
-# from collections import Counter, defaultdict
 
 
 def get_birthdays_per_week(users):
     #  Реалізуйте тут домашнє завдання
 
     dict_births = {}
-    today = datetime(year=2023, month=12, day=26).date()    #  Встановлення статичної дати замість стогоднішньої
-    # today = datetime.today().date()                       #  Встановлення сьогоднішної дати 
+    today = datetime(year=2023, month=12, day=26).date()    # Встановлення статичної дати замість стогоднішньої
+    # today = datetime.today().date()                       # Встановлення сьогоднішної дати 
 
     time_delta = timedelta(days=7)
     date_end = today + time_delta
@@ -24,8 +23,8 @@ def get_birthdays_per_week(users):
                 dat_birth = datetime(
                     year=today.year+1, month=dat_birth.month, day=dat_birth.day)
 
-            if dat_birth.date() == today + dat_delta:                                   #  Перевіряє пранлежність кожного ДН до відповідного
-                if (today+dat_delta).strftime('%A') == 'Monday':                        #  дня тижня, та формує вихідний список
+            if dat_birth.date() == today + dat_delta:                                   # Перевіряє пранлежність кожного ДН до відповідного
+                if (today+dat_delta).strftime('%A') == 'Monday':                        # дня тижня, та формує вихідний список
                     if ('Monday') not in dict_births:
                         dict_births['Monday'] = []
                     dict_births['Monday'].append(dict_user['name'])
@@ -61,32 +60,13 @@ def get_birthdays_per_week(users):
                     dict_births['Monday'].append(dict_user['name'])
                     break
 
-
-
-
-
-
-                # print((today+dat_delta).strftime('%A'))
-                # if (today+dat_delta).strftime('%A') == 'Saturday' or (today+dat_delta).strftime('%A') == 'Sunday':
-                #     if ('Monday') not in dict_births:
-                #         dict_births['Monday'] = []
-                #     dict_births['Monday'].append(dict_user['name'])
-                #     break
-                # if (today+dat_delta).strftime('%A') not in dict_births:
-                #     dict_births[(today+dat_delta).strftime('%A')] = []
-                # dict_births[(today+dat_delta).strftime('%A')
-                #             ].append(dict_user['name'])
-                # break
-
-    # print(dict_births)
     return dict_births
 
 
 if __name__ == "__main__":
     users = [
         {"name": "Jan Koum", "birthday": datetime(1976, 9, 1).date()},
-        
-    ]
+        ]
 
     result = get_birthdays_per_week(users)
     print(result)
